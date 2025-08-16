@@ -56,7 +56,7 @@
 1. Clone the repository:  
 ```bash
 git clone https://github.com/AtharvDubey12/Glide-Codebase.git
-cd glide
+cd Glide-Codebase
 ```
 
 2. Install dependencies 
