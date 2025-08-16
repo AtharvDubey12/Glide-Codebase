@@ -6,8 +6,8 @@
 
 ## Features ✨
 
-- **Secure Authentication:** Powered by **JWT** and **bcrypt** and **Cookie-Parser**.
-- **CRUD Features:** Upload file(s) (both single and batch uploads are supported), download files, delete files, Modify access controls. 
+- **Secure Authentication:** Powered by **JWT**, **bcrypt** and **Cookie-Parser**.
+- **CRUD Features:** Upload file(s) (both single and batch uploads are supported), download files, update access controls, delete files. 
 - **AI-Powered Summarization:** Quickly summarize text and images using **Gemini AI**.  
 - **Secure Privacy Controls:** Fine-grained access permissions for your files.  
 - **Malware Protection:** Files can be scanned via **MetaDefender API** for added security.  
@@ -37,7 +37,7 @@
   - Dropbox API (file storage & retrieval)
 
 ---
-#3 Deployed Link : Coming Soon.
+## Deployed Link : Coming Soon.
 
 ## Getting Started  (Local Installation)⚡
 
@@ -75,7 +75,7 @@ GEMINI_API_KEY=<your_gemini_api_key>
 METADEFENDER_API_KEY=<your_metadefender_api_key>
 ```
 
-4. Run servers
+4. Run server
 ```bash
 npm run dev    --> in /frontend
 npm run server --> in /backend
@@ -92,6 +92,7 @@ The project is licenced under MIT Licence
 ### Future Enhancement
 * Implementation of a Folder system like Google Drive
 * Breadcrumb traversal implementation
+* Ability to create and upload markdown and plain text files directly on Glide.
 
 ### Contact the Developer
 Gmail : athdubey120904@gmail.com
