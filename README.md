@@ -7,7 +7,7 @@
 ## Features ✨
 
 - **Secure Authentication:** Powered by **JWT**, **bcrypt** and **Cookie-Parser**.
-- **CRUD Features:** Upload file(s) (both single and batch uploads are supported), download files, update access controls, delete files. 
+- **CRUD Features and beyond:** Create txt/md files directly on Glide, upload file(s) (both single and batch uploads are supported), download files, update access controls, delete files. 
 - **AI-Powered Summarization:** Quickly summarize text and images using **Gemini AI**.  
 - **Secure Privacy Controls:** Fine-grained access permissions for your files.  
 - **Malware Protection:** Files can be scanned via **MetaDefender API** for added security.  
@@ -20,7 +20,8 @@
 ## Tech Stack 🛠️
 
 - **Frontend:**  
-  - React  
+  - React
+  - React Markdown 
   - React Three Fiber  
   - Swiper.js  
   - Lenis (smooth scrolling)  
@@ -50,12 +51,12 @@
 - Gemini AI & MetaDefender API keys  
 
 ### Installation 
-#### (project Size ~480MB)
+#### (project Size ~490MB)
 
 1. Clone the repository:  
 ```bash
 git clone https://github.com/AtharvDubey12/Glide-Codebase.git
-cd glide
+cd Glide-Codebase
 ```
 
 2. Install dependencies 
@@ -92,7 +93,6 @@ The project is licenced under MIT Licence
 ### Future Enhancement
 * Implementation of a Folder system like Google Drive
 * Breadcrumb traversal implementation
-* Ability to create and upload markdown and plain text files directly on Glide.
 
 ### Contact the Developer
 Gmail : athdubey120904@gmail.com
