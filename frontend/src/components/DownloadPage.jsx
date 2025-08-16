@@ -51,7 +51,7 @@ function DownloadPage() {
   return (
     <div className="flex justify-center items-center mt-[60px] h-[calc(100vh-60px)] text-white w-full">
       { (inv === false) ? 
-      <div ref={pop} className="relative flex flex-col items-center p-10 lg:-ml-10 w-[80%] h-[70%] bg-violet-950 bg-opacity-25 rounded-3xl">
+      <div ref={pop} className="relative flex flex-col items-center p-10 lg:-ml-10 w-[80%] h-[75%] md:h-[70%] lg:h-[70%] bg-violet-950 bg-opacity-25 rounded-3xl">
         <p className="w-full flex justify-center lg:justify-start mb-3 rounded-bl-lg">
           <span className="font-inter font-bold mr-2 text-violet-500">
             GLIDE
@@ -65,17 +65,17 @@ function DownloadPage() {
           </span>
         </p>
         <div className="w-full mb-2 h-[1px] bg-gradient-to-r from-violet-900 to-transparent rounded-full"></div>
-        <div className="w-full flex pt-5 pb-2"> 
-        <div className="px-5 w-1/2 font-extralight">File Name  <span className="font-inter text-sm text-gray-400 pl-2">{file?.name || "processing"}</span></div>
-        <div className="px-5 w-1/2 font-extralight">File Size  <span className="font-inter text-sm text-gray-400 pl-2">{file?.size / 1000 || "processing"} KB</span></div>
+        <div className="w-full flex-col justify-center items-center flex pt-5 pb-2"> 
+        <div className="mb-3 flex text-center flex-col px-5 w-full font-extralight">File Name  <span className="font-inter text-center text-sm text-gray-400 pl-2">{file?.name || "processing"}</span></div>
+        <div className="px-5 flex-col flex text-center w-full font-extralight mb-3"><span>File Size</span><span className="font-inter text-sm text-center text-gray-400 pl-2">{file?.size / 1000 || "processing"} KB</span></div>
     </div>
-        <div className="w-full flex"> 
-        <div className="px-5 w-1/2 font-extralight">File Type  <span className="font-inter text-sm text-gray-400 pl-2">{file?.type || "processing"}</span></div>
-        <div className="px-5 w-1/2 font-extralight">Available  <span className="font-inter text-sm text-gray-400 pl-2">{(file?.isPublic)? "Yes" : "No"}</span></div>
+        <div className="w-full flex flex-col"> 
+        <div className="px-5 w-full flex flex-col text-center font-extralight mb-3"><span>File Type</span>  <span className="font-inter text-sm text-gray-400 pl-2">{file?.type || "processing"}</span></div>
+        <div className="px-5 w-full flex flex-col text-center font-extralight">Available  <span className="font-inter text-sm text-gray-400 pl-2">{(file?.isPublic)? "Yes" : "No"}</span></div>
     </div>
         <button onClick={()=>{
           downloadFromSharedURL(file.url, file.name);
-        }} className={`absolute bottom-14 w-[150px] p-4 rounded-xl border-2 ${(file?.isPublic) ? "border-green-600 bg-green-100" : "border-red-500 bg-red-200"}  bg-opacity-5`} disabled={!(file?.isPublic)}>
+        }} className={` absolute bottom-5 md:bottom-8 lg:bottom-14 w-[150px] p-4 rounded-xl border-2 ${(file?.isPublic) ? "border-green-600 bg-green-100" : "border-red-500 bg-red-200"}  bg-opacity-5`} disabled={!(file?.isPublic)}>
           {
             (file?.isPublic) ? "Download Now" : "Unavailable"
           }
