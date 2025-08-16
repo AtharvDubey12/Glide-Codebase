@@ -6,10 +6,12 @@
 
 ## Features ✨
 
+- **Secure Authentication:** Powered by **JWT** and **bcrypt** and **Cookie-Parser**.
+- **CRUD Features:** Upload file(s) (both single and batch uploads are supported), download files, delete files, Modify access controls. 
 - **AI-Powered Summarization:** Quickly summarize text and images using **Gemini AI**.  
 - **Secure Privacy Controls:** Fine-grained access permissions for your files.  
-- **Malware Protection:** Files are scanned via **MetaDefender API** for added security.  
-- **File Sharing:** Generate links for easy sharing of your files.  
+- **Malware Protection:** Files can be scanned via **MetaDefender API** for added security.  
+- **File Sharing:** Generate links for easy sharing of your files, using ***Glide Downloads*** URLs.  
 - **Smooth UI & Animations:** Built with **React 3 Fiber**, **GSAP**, **Swiper.js**, and **Lenis** for a fluid experience.  
 - **Responsive Design:** Styled using **Tailwind CSS** for a clean and modern look.
 
