@@ -115,7 +115,7 @@ function Dashboard() {
           <div
             onClick={() => {
               setInPopup(true);
-              setFileOrFold("Create a Folder");
+              setFileOrFold("Create a File");
             }}
             className="hover:bg-violet-800 transition-all duration-200 select-none flex justify-center items-center mr-5 w-[50px] h-[50px] rounded-full bg-violet-900 bg-opacity-40 fixed bottom-[90px] right-0"
           >

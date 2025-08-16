@@ -29,7 +29,6 @@ uploadRoutes.post('/api/save-file', authMiddleware, upload.single('file'), async
       mode: { '.tag': 'overwrite' }
     });
 
-   // Create a shared link
     const linkResponse = await dbx.sharingCreateSharedLinkWithSettings({
       path: dropboxResponse.result.path_lower
     });
