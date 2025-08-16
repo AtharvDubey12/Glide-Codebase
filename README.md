@@ -20,7 +20,8 @@
 ## Tech Stack 🛠️
 
 - **Frontend:**  
-  - React  
+  - React
+  - React Markdown 
   - React Three Fiber  
   - Swiper.js  
   - Lenis (smooth scrolling)  
@@ -50,7 +51,7 @@
 - Gemini AI & MetaDefender API keys  
 
 ### Installation 
-#### (project Size ~480MB)
+#### (project Size ~490MB)
 
 1. Clone the repository:  
 ```bash
