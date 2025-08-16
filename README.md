@@ -92,7 +92,6 @@ The project is licenced under MIT Licence
 ### Future Enhancement
 * Implementation of a Folder system like Google Drive
 * Breadcrumb traversal implementation
-* Ability to create and upload markdown and plain text files directly on Glide.
 
 ### Contact the Developer
 Gmail : athdubey120904@gmail.com
