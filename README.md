@@ -7,7 +7,7 @@
 ## Features ✨
 
 - **Secure Authentication:** Powered by **JWT**, **bcrypt** and **Cookie-Parser**.
-- **CRUD Features:** Upload file(s) (both single and batch uploads are supported), download files, update access controls, delete files. 
+- **CRUD Features:** Create txt/md files directly on Glide, upload file(s) (both single and batch uploads are supported), download files, update access controls, delete files. 
 - **AI-Powered Summarization:** Quickly summarize text and images using **Gemini AI**.  
 - **Secure Privacy Controls:** Fine-grained access permissions for your files.  
 - **Malware Protection:** Files can be scanned via **MetaDefender API** for added security.  
