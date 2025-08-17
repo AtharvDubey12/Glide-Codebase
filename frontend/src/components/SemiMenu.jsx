@@ -26,6 +26,23 @@ function SemiMenu({ action, flag, forceRefresh }) {
     a.remove();
   };
 
+  const downloadFromBackend = async (id, filename) => {
+  try {
+    const res = await fetch(`${API_URL}/api/download/${id}`);
+    if (!res.ok) throw new Error('Download failed');
+
+    const blob = await res.blob();
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename || "download";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  } catch (err) {
+    alert(err.message);
+  }
+};
+
   const slideRef = useRef();
   useEffect(() => {
     gsap.from(slideRef.current, {
@@ -67,7 +84,7 @@ function SemiMenu({ action, flag, forceRefresh }) {
         className="absolute translate-x-5 lg:translate-x-4 w-[18vh] h-[23vh] rounded-md bg-white bg-opacity-80 backdrop-blur-xl flex flex-col justify-between overflow-hidden z-[20]"
       >
         <div
-          onClick={() => downloadFromSharedURL(action.url, action.name)}
+          onClick={() => downloadFromBackend(action._id, action.name)}
           className="w-full h-[20%] text-black font-inter text-xs flex justify-center items-center border-b-[1px] border-[rgba(0,0,0,0.5)] transition-colors duration-200 cursor-pointer hover:bg-gray-400 rounded-t-md"
         >
           Download
