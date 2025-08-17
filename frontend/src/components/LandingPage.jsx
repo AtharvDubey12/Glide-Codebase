@@ -166,7 +166,7 @@ function LandingPage() {
         <div className="relative overflow-hidden flex flex-col h-[calc(100vh)] bg-violet-900 bg-opacity-5 items-center shadow-lg rounded-bl-xl w-full lg:w-2/5">
           <div className="md:w-2/3 lg:w-2/3 w-3/4 h-[42%] md:h[40%] lg:h-[40%] bg-violet-900 bg-opacity-10 shadow-[0_0_25px_rgba(43,2,86,1)] rounded-3xl mt-20 md:mt-20 lg:mt-10 overflow-hidden">
             <video
-              className="w-full h-full object-cover brightness-75"
+              className="w-full h-full object-cover"
               src={cover}
               autoPlay
               loop
