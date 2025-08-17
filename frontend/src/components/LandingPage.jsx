@@ -66,7 +66,6 @@ function LandingPage() {
     },
   ];
 
-  // Fade-in on scroll
   useEffect(() => {
     if (!popRef.current) return;
     gsap.fromTo(
@@ -87,7 +86,6 @@ function LandingPage() {
     );
   }, []);
 
-  // Heading animations (combined into one timeline to avoid multiple layout passes)
   useEffect(() => {
     if (!headRef.current || !semiRef.current || !mainRef.current) return;
 
@@ -124,7 +122,7 @@ function LandingPage() {
     <>
       <div className="mt-[60px] flex flex-col lg:flex-row text-white font-inter w-full">
         <div className="relative w-full lg:w-3/5 h-[100vh]">
-          <div className="overflow-hidden opacity-100 w-full h-full absolute">
+          <div className="overflow-hidden opacity-100 w-full h-full absolute z-[18]">
             <Canvas
               className="md:translate-x-40 lg:translate-x-40 -translate-y-40"
               dpr={[1, 1.5]}
@@ -142,11 +140,11 @@ function LandingPage() {
             ref={headRef}
             className="text-5xl font-semibold p-10 md:w-[50%] h-[50vh] flex justify-center flex-col items-center"
           >
-            <span>Swift. Secure.</span>
-            <span ref={semiRef}>Seamless. </span>
+            <span className="font-inter relative z-[17]">Swift. Secure.</span>
+            <span className="font-inter relative z-[17]" ref={semiRef}>Seamless. </span>
             <span
               ref={mainRef}
-              className="font-extrabold bg-gradient-to-l from-purple-400 via-purple-500 to-blue-900 bg-clip-text text-transparent"
+              className="relative z-[19] font-inter font-extrabold bg-gradient-to-l from-purple-400 via-purple-500 to-blue-900 bg-clip-text text-transparent"
             >
               Glide.
             </span>

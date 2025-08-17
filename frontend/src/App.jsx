@@ -1,15 +1,11 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import './App.css' 
-import { gsap } from 'gsap';
-import logo from './assets/logo.png';
 import Nav from './components/Navbar.jsx';
-import AnimButton from './components/AnimButton.jsx';
 import Footer from './components/Footer.jsx';
 import LandingPage from './components/LandingPage.jsx';
 import Lenis from '@studio-freight/lenis';
 import { Route, Routes } from 'react-router-dom';
 import Auth from './components/Auth.jsx';
-import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Dashboard from './components/Dashboard.jsx';
 import Enterprise from './components/Enterprise.jsx';
 import DownloadPage from './components/DownloadPage.jsx';

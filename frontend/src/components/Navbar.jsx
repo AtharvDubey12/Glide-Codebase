@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollToPlugin);
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.webp";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 
