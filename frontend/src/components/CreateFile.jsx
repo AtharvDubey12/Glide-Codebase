@@ -21,7 +21,6 @@ export default function CreateFile({ onUpload }) {
       const formData = new FormData();
       formData.append("file", file);
       formData.append("isPublic", isPublic);
-      alert("hi")
       const res = await axios.post("http://localhost:4000/api/save-file", formData, {
         headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true

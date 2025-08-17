@@ -31,7 +31,7 @@ function InitModel(props) {
     }
   }, [actions]);
 
-  return <primitive object={scene} scale={1.5} {...props} />;
+  return <primitive object={scene} scale={1.2} {...props} />;
 }
 
 function LandingPage() {
@@ -120,11 +120,11 @@ function LandingPage() {
 
   return (
     <>
-      <div className="mt-[60px] flex flex-col lg:flex-row text-white font-inter w-full min-h-[calc(100vh)]">
-        <div className="relative w-full lg:w-3/5 h-full">
+      <div className="mt-[60px] flex flex-col lg:flex-row text-white font-inter w-full">
+        <div className="relative w-full lg:w-3/5 h-[100vh]">
           <div className="overflow-hidden opacity-100 w-full h-full absolute">
             <Canvas
-              className="md:translate-x-40 lg:translate-x-40 -translate-y-20"
+              className="md:translate-x-40 lg:translate-x-40 -translate-y-40"
               camera={{ position: [0, 2, 5], fov: 50 }}
             >
               <ambientLight intensity={2} color={"#ffffff"} />
@@ -144,7 +144,7 @@ function LandingPage() {
               <Suspense fallback={null}>
                 <InitModel />
               </Suspense>
-              {/* <OrbitControls /> */}
+
             </Canvas>
           </div>
           <h1
@@ -166,13 +166,13 @@ function LandingPage() {
             <br />
             Trusted by Millions of users Worldwide.
           </p>
-          <div className="my-5 w-full h-20 p-4 flex justify-center">
+          <div className="my-10 w-full h-20 p-4 flex justify-center">
             <AnimButton redirectTo={"/authentication"} />
           </div>
         </div>
 
-        <div className="relative overflow-hidden flex flex-col min-h-[calc(100vh - 60px)] bg-violet-900 bg-opacity-5 items-center shadow-lg rounded-bl-xl w-full lg:w-2/5">
-          <div className="w-2/3 h-1/2 bg-violet-900 bg-opacity-10 shadow-[0_0_25px_rgba(43,2,86,1)] rounded-3xl mt-10 overflow-hidden">
+        <div className="relative overflow-hidden flex flex-col h-[calc(100vh)] bg-violet-900 bg-opacity-5 items-center shadow-lg rounded-bl-xl w-full lg:w-2/5">
+          <div className="md:w-2/3 lg:w-2/3 w-3/4 h-[42%] md:h[40%] lg:h-[40%] bg-violet-900 bg-opacity-10 shadow-[0_0_25px_rgba(43,2,86,1)] rounded-3xl mt-20 md:mt-20 lg:mt-10 overflow-hidden">
             <video
               className="w-full h-full object-cover brightness-75"
               src={cover}
@@ -185,7 +185,7 @@ function LandingPage() {
           <span className="mt-2 translate-x-2 opacity-50 w-2/3 justify-end text-xs text-gray-600 font-extralight font-sans">
             Creative Visualization
           </span>
-          <div className="relative flex flex-col justify-center items-center text-center w-2/3 h-[18vh] md:h-1/4 mb-5 md:mb-0 bg-violet-900 bg-opacity-10 shadow-[5_5_25px_rgba(0,0,0,0.5)] rounded-3xl mt-10 overflow-hidden p-4">
+          <div className="relative flex flex-col justify-center items-center text-center md:w-2/3 lg:w-2/3 w-3/4 h-[20vh] mt-20 md:mt-10 lg:mt-10 md:h-1/4 mb-5 md:mb-0 bg-violet-900 bg-opacity-10 shadow-[5_5_25px_rgba(0,0,0,0.5)] rounded-3xl overflow-hidden p-4">
             <Reviews />
             <span className="absolute right-6 text-sm bottom-2 text-gray-500 font-inter">
               - our users

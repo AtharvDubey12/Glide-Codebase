@@ -103,7 +103,7 @@ function Dashboard() {
             setTimeout(() => setClicked(!clicked), 170);
           } else setClicked(!clicked);
         }}
-        className="select-none shadow-[0_0_20px_rgba(128,0,255,0.4)] cursor-pointer m-5 fixed bottom-0 right-0 w-[50px] h-[50px] rounded-full bg-purple-900 text-white flex justify-center items-center text-5xl hover:bg-violet-600 transition-all duration-200"
+        className="select-none shadow-[0_0_20px_rgba(128,0,255,0.4)] cursor-pointer m-5 fixed bottom-0 right-0 w-[50px] h-[50px] rounded-full bg-purple-900 text-white flex justify-center items-center text-5xl hover:bg-violet-600 transition-all duration-200 z-[15]"
       >
         <span className="-translate-y-1.5 font-extralight hover:scale-90 transition-all duration-200">
           +
@@ -117,7 +117,7 @@ function Dashboard() {
               setInPopup(true);
               setFileOrFold("Create a File");
             }}
-            className="hover:bg-violet-800 transition-all duration-200 select-none flex justify-center items-center mr-5 w-[50px] h-[50px] rounded-full bg-violet-900 bg-opacity-40 fixed bottom-[90px] right-0"
+            className="hover:bg-violet-800 z-[15] transition-all duration-200 select-none flex justify-center items-center mr-5 w-[50px] h-[50px] rounded-full bg-violet-900 bg-opacity-40 fixed bottom-[90px] right-0"
           >
             <img
               src={add_folder}
@@ -130,7 +130,7 @@ function Dashboard() {
               setInPopup(true);
               setFileOrFold("Upload a File");
             }}
-            className="hover:bg-violet-800 transition-all duration-200 select-none flex justify-center items-center mr-5 w-[50px] h-[50px] rounded-full bg-violet-900 bg-opacity-40 fixed bottom-[150px] right-0"
+            className="hover:bg-violet-800 z-[15] transition-all duration-200 select-none flex justify-center items-center mr-5 w-[50px] h-[50px] rounded-full bg-violet-900 bg-opacity-40 fixed bottom-[150px] right-0"
           >
             <img
               src={add_file}
@@ -167,7 +167,7 @@ function Dashboard() {
                   {files.map((file, index) => (
                     <div
                       key={file._id}
-                      className=" p-3 w-[45vw] sm:w-[25vw] md:w-[20vw] lg:w-[14vw] xl:w-[11vw] h-[25vh] rounded-lg bg-violet-900 bg-opacity-20 flex flex-col flex-wrap hover:bg-opacity-40 duration-200 transition-colors cursor-pointer"
+                      className=" p-3 w-[44vw] md:w-[20vw] lg:w-[14vw] xl:w-[11vw] h-[25vh] rounded-lg bg-violet-900 bg-opacity-20 flex flex-col flex-wrap hover:bg-opacity-40 duration-200 transition-colors cursor-pointer"
                     > 
                       <div
                         onClick={async () => {

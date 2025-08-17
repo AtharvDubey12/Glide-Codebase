@@ -32,10 +32,10 @@ function Enterprise() {
       name: "Pro",
       price: "₹999/mo",
       features: [
+        "All features of Basic Plan",
         "1 TB secure storage",
         "Advanced sharing controls",
         "Malware protection",
-        "Priority support",
       ],
       description:
         "The Pro plan is our most popular choice, designed for professionals and power users. With advanced sharing, AI-backed malware protection, and priority support, it offers the perfect balance of power and affordability.",
@@ -45,9 +45,9 @@ function Enterprise() {
       name: "Enterprise",
       price: "₹5999/mo",
       features: [
+        "All features of Pro Plan",
         "Unlimited storage",
         "Team collaboration tools",
-        "AI-powered search & summarization",
         "Dedicated support manager",
       ],
       description:
@@ -73,11 +73,10 @@ function Enterprise() {
             key={index}
             className={`hover:scale-[1.01] font-inter hover:border-purple-500 relative bg-gradient-to-b from-[#1a0b2e] to-[#0f071a] p-6 rounded-2xl shadow-lg border transition-transform duration-300 hover:scale-102 ${
               tier.highlight
-                ? "border-violet-500 shadow-[0_0_25px_rgba(139,92,246,0.6)]"
+                ? "border-violet-500 shadow-[0_0_25px_rgba(139,92,246,0.5)]"
                 : "border-gray-800"
             }`}
           >
-            {/* Badge for most popular */}
             {tier.highlight && (
               <div className="absolute -top-3 right-4 bg-violet-600 text-xs font-semibold px-3 py-1 rounded-full shadow-md">
                 Most Popular
