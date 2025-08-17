@@ -13,6 +13,7 @@ function SemiMenu({ action, flag, forceRefresh }) {
   const [copy, setCopy] = useState(false);
   const [toDel, setToDel] = useState(false);
   const [sum, setSum] = useState(false);
+  const [down, setDown] = useState(false);
 
   const downloadFromSharedURL = (url, filename) => {
     const directUrl = url
@@ -85,10 +86,16 @@ function SemiMenu({ action, flag, forceRefresh }) {
         className="absolute translate-x-5 lg:translate-x-4 w-[18vh] h-[23vh] rounded-md bg-white bg-opacity-80 backdrop-blur-xl flex flex-col justify-between overflow-hidden z-[20]"
       >
         <div
-          onClick={() => downloadFromBackend(action._id, action.name)}
+          onClick={async () =>{ 
+            setDown(true);
+            await downloadFromBackend(action._id, action.name)
+            setDown(false);
+          }}
           className="w-full h-[20%] text-black font-inter text-xs flex justify-center items-center border-b-[1px] border-[rgba(0,0,0,0.5)] transition-colors duration-200 cursor-pointer hover:bg-gray-400 rounded-t-md"
         >
-          Download
+          {
+            down === true ? "Downloading..." : "Download"
+          }
         </div>
         <div
           onClick={() => setVirus((prev) => !prev)}
