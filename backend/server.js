@@ -10,7 +10,8 @@ import scanRoutes from './routes/scan.js'
 import downloadRoute from './routes/downloadFile.js';
 import delRoute from './routes/deleteFile.js';
 import revRoute from './routes/reverseStatus.js';
-import aiRoutes from './routes/ai.js'
+import aiRoutes from './routes/ai.js';
+import healthRoute from './routes/health.js';
 
 dotenv.config();
 const app = express();
@@ -25,6 +26,7 @@ app.use('/', downloadRoute);
 app.use('/', delRoute);
 app.use('/', revRoute);
 app.use('/', aiRoutes);
+app.use('/', healthRoute);
 connectDB();
 
 
