@@ -1,0 +1,16 @@
+name: Keep Render Alive
+
+on:
+  schedule:
+    - cron: "*/10 * * * *" 
+  workflow_dispatch:  
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Random Delay (0–240s)
+        run: sleep $((RANDOM % 240)) 
+
+      - name: Curl Render App
+        run: curl -s https://glide-codebase.onrender.com/api/health || true
