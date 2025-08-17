@@ -5,6 +5,7 @@ import FilePopup from "./FilePopup";
 import UrlCopy from "./UrlCopy";
 import DeleteFile from "./DeleteFile";
 
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 function SemiMenu({ action, flag, forceRefresh }) {
   const [open, setOpen] = useState(false);
