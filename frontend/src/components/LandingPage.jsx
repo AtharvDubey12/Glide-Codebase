@@ -172,7 +172,6 @@ function LandingPage() {
               loop
               muted
               playsInline
-              preload="auto"
             />
           </div>
           <span className="mt-2 translate-x-2 opacity-50 w-2/3 justify-end text-xs text-gray-600 font-extralight font-sans">
