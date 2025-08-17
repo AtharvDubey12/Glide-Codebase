@@ -5,12 +5,12 @@ import cube from "../assets/cube.glb";
 import AnimButton from "./AnimButton";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 import image from "../assets/file.png";
 import share_img from "../assets/share.png";
 import safe_img from "../assets/safe.png";
 import gem_img from "../assets/gem.png";
 import pr_img from "../assets/priv.png";
-gsap.registerPlugin(ScrollTrigger);
 import cover from "../assets/cover.webm";
 import LandingCard from "./LandingCard";
 import TrustedBy from "./TrustedBy";
@@ -37,8 +37,7 @@ function LandingPage() {
   const mainRef = useRef();
   const semiRef = useRef();
   const popRef = useRef();
-  const content = "Bulk File Storage";
-  const body = "inexpensive and extremely fast storage facility";
+
   const cardCont = [
     {
       image: image,
@@ -67,53 +66,58 @@ function LandingPage() {
     },
   ];
 
+  // Fade-in on scroll
   useEffect(() => {
+    if (!popRef.current) return;
     gsap.fromTo(
       popRef.current,
-      { opacity: 0, y: 20 },
+      { autoAlpha: 0, y: 20, willChange: "transform, opacity" },
       {
-        opacity: 1,
-        y: -10,
-        duration: 0.5,
-        ease: "power2.in",
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: popRef.current,
           start: "top 90%",
           toggleActions: "play none none none",
         },
+        onComplete: () => gsap.set(popRef.current, { willChange: "auto" }),
       }
     );
   }, []);
 
+  // Heading animations (combined into one timeline to avoid multiple layout passes)
   useEffect(() => {
-    const items = headRef.current.children;
-    gsap.from(items, {
-      delay: 1,
+    if (!headRef.current || !semiRef.current || !mainRef.current) return;
+
+    const tl = gsap.timeline();
+    const spans = headRef.current.children;
+
+    tl.from(spans, {
       opacity: 0,
+      y: 10,
       stagger: 0.2,
       duration: 0.4,
-      ease: "power2.in",
-    });
-  }, []);
-
-  useEffect(() => {
-    const items = mainRef.current;
-    gsap.to(items, {
-      delay: 2,
-      x: 80,
-      duration: 0.8,
       ease: "power2.out",
-    });
-  }, []);
+      willChange: "transform, opacity",
+    })
+      .to(semiRef.current, {
+        x: 40,
+        duration: 0.4,
+        ease: "power2.out",
+      })
+      .to(
+        mainRef.current,
+        {
+          x: 80,
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        "-=0.2"
+      );
 
-  useEffect(() => {
-    const items = semiRef.current;
-    gsap.to(items, {
-      delay: 1.5,
-      x: 40,
-      duration: 0.4,
-      ease: "bounce.out",
-    });
+    return () => tl.kill();
   }, []);
 
   return (
@@ -121,21 +125,18 @@ function LandingPage() {
       <div className="mt-[60px] flex flex-col lg:flex-row text-white font-inter w-full">
         <div className="relative w-full lg:w-3/5 h-[100vh]">
           <div className="overflow-hidden opacity-100 w-full h-full absolute">
-<Canvas className="md:translate-x-40 lg:translate-x-40 -translate-y-40"
-  dpr={[1, 1.5]}
-  performance={{ min: 0.5 }}
-  camera={{ position: [0, 2, 5], fov: 50 }}
->
-  <ambientLight intensity={1.2} />
-  <directionalLight
-    position={[5, 5, 5]}
-    intensity={5}
-  />
-  <Suspense fallback={null}>
-    <InitModel />
-  </Suspense>
-</Canvas>
-
+            <Canvas
+              className="md:translate-x-40 lg:translate-x-40 -translate-y-40"
+              dpr={[1, 1.5]}
+              performance={{ min: 0.5 }}
+              camera={{ position: [0, 2, 5], fov: 50 }}
+            >
+              <ambientLight intensity={1.2} />
+              <directionalLight position={[5, 5, 5]} intensity={5} />
+              <Suspense fallback={null}>
+                <InitModel />
+              </Suspense>
+            </Canvas>
           </div>
           <h1
             ref={headRef}
@@ -191,15 +192,14 @@ function LandingPage() {
           Gliding through the Tension. <br /> With Style
         </p>
         <div className="flex flex-wrap gap-10 p-4 justify-center">
-          {cardCont.map((item) => {
-            return (
-              <LandingCard
-                image={item.image}
-                content={item.content}
-                body={item.body}
-              />
-            );
-          })}
+          {cardCont.map((item, idx) => (
+            <LandingCard
+              key={idx}
+              image={item.image}
+              content={item.content}
+              body={item.body}
+            />
+          ))}
         </div>
       </div>
       <TrustedBy />
