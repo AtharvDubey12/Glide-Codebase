@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
+const API_URL = import.meta.env.VITE_BACKEND_URL;
+
 
 export default function CreateFile({ onUpload }) {
   const [fileName, setFileName] = useState("");
@@ -21,7 +23,7 @@ export default function CreateFile({ onUpload }) {
       const formData = new FormData();
       formData.append("file", file);
       formData.append("isPublic", isPublic);
-      const res = await axios.post("http://localhost:4000/api/save-file", formData, {
+      const res = await axios.post(`${API_URL}/api/save-file`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true
       });

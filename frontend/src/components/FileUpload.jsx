@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default function FileUpload() {
   const [dragActive, setDragActive] = useState(false);
@@ -64,7 +65,7 @@ export default function FileUpload() {
 //           console.log("File Uploaded: ", res.secure_url);
 
 //           try {
-// await axios.post("http://localhost:4000/api/save-file", {
+// await axios.post("API_URL/api/save-file", {
 //   fileUrl: res.secure_url,
 //   name: files[i].name,
 //   size: files[i].size,
@@ -108,7 +109,7 @@ const uploadToDropbox = async () => {
     try {
       // Call the backend endpoint that uploads to Dropbox
       const res = await axios.post(
-        "http://localhost:4000/api/save-file", 
+        `${API_URL}/api/save-file`, 
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

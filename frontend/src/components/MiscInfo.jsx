@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 function MiscInfo({file, forceRefresh}) {
   const [clicked, setClicked] = useState(false);
   const [status, setStatus] = useState(file.isPublic === true ? "Public" : "Private");
 
   const reverse = async (file) => {
-    const response = await axios.post("http://localhost:4000/api/change-file-status", {
+    const response = await axios.post(`${API_URL}/api/change-file-status`, {
       id: file._id
     })
     setStatus(response.data.message === true ? "Public" : "Private");

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 function VirusScan({ file }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +35,7 @@ function VirusScan({ file }) {
             setStatus("scanning...");
             setIsLoading(true);
             const { data } = await axios.post(
-              "http://localhost:4000/api/scan",
+              `${API_URL}/api/scan`,
               {
                 fileUrl: file.url,
               }

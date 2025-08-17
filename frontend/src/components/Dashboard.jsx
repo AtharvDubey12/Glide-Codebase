@@ -12,6 +12,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import SemiMenu from "./SemiMenu";
 
+const API_URL = import.meta.env.VITE_BACKEND_URL;
+
+
 function Dashboard() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user") || "null");
@@ -75,7 +78,7 @@ function Dashboard() {
   }, [clicked]);
     const fetchFiles = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/files", {
+        const res = await axios.get(`${API_URL}/api/files`, {
           withCredentials: true,
         });
         setFiles(res.data);

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import './util.css';
 
+const API_URL = import.meta.env.VITE_BACKEND_URL;
+
+
 function AiSum({ file }) {
   const [sum, setSum] = useState("Summarized text appears here...");
   const [loading, setLoading] = useState(false);
@@ -12,7 +15,7 @@ function AiSum({ file }) {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/summarize",
+        `${API_URL}/api/summarize`,
         {
           link: file.url,
         }

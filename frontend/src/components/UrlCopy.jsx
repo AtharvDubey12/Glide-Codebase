@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-
+const API_URL = import.meta.env.VITE_FRONTEND_URL;
 function UrlCopy({ file, setCopy }) {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
     navigator.clipboard
-      .writeText(`http://localhost:5173/download/${file._id}`)
+      .writeText(`${API_URL}/download/${file._id}`)
       .then(() => {
         setCopied(true);
       })

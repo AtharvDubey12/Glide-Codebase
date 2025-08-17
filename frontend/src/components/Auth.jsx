@@ -12,11 +12,13 @@ function Auth() {
   const [password, setPassword] = useState("");
   const [er, setEr] = useState(null); 
 
+  const API_URL = import.meta.env.VITE_BACKEND_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
         try {
       if (status === 'Signup') {
-        const res = await axios.post('http://localhost:4000/signup', {
+        const res = await axios.post(`${API_URL}/signup`, {
           email,
           username,
           password
@@ -25,7 +27,7 @@ function Auth() {
         localStorage.setItem('token', JSON.stringify(res.data.token));
         navigate('/user/dashboard');
       } else {
-        const res = await axios.post('http://localhost:4000/login', {
+        const res = await axios.post(`${API_URL}/login`, {
           username,
           password
         }, {withCredentials: true});

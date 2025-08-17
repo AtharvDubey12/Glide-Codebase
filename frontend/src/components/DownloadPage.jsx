@@ -3,6 +3,7 @@ import { useParams} from "react-router-dom";
 import s_img from "../assets/speed.png";
 import {gsap} from 'gsap';
 import axios from "axios";
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 function DownloadPage() {
   const [file, setFile] = useState(null);
@@ -22,7 +23,7 @@ function DownloadPage() {
   useEffect(()=>{
     async function x(){
     try {
-      const response = await axios.post('http://localhost:4000/api/getfile', {
+      const response = await axios.post(`${API_URL}/api/getfile`, {
         id: id
       });
       setFile(response.data);

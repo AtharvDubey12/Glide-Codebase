@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import axios from 'axios';
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 function DeleteFile({file, setToDel, forceRefresh}) {
   const [delStatus, setDelStatus] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
   async function delFile(url, id){
     try {
-      const res = await axios.post("http://localhost:4000/api/delfile", {
+      const res = await axios.post(`${API_URL}/api/files`, {
         url: url,
         id: id
       });
