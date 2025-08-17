@@ -6,7 +6,7 @@ function DeleteFile({file, setToDel, forceRefresh}) {
   const [isDeleting, setIsDeleting] = useState(false);
   async function delFile(url, id){
     try {
-      const res = await axios.post(`${API_URL}/api/files`, {
+      const res = await axios.post(`${API_URL}/api/delfile`, {
         url: url,
         id: id
       });
