@@ -76,11 +76,11 @@ function LandingPage() {
       {
         opacity: 1,
         y: -10,
-        duration: 1.5,
-        ease: "power3.out",
+        duration: 0.5,
+        ease: "power2.in",
         scrollTrigger: {
           trigger: popRef.current,
-          start: "top 80%",
+          start: "top 90%",
           toggleActions: "play none none none",
         },
       }
@@ -123,29 +123,21 @@ function LandingPage() {
       <div className="mt-[60px] flex flex-col lg:flex-row text-white font-inter w-full">
         <div className="relative w-full lg:w-3/5 h-[100vh]">
           <div className="overflow-hidden opacity-100 w-full h-full absolute">
-            <Canvas
-              className="md:translate-x-40 lg:translate-x-40 -translate-y-40"
-              camera={{ position: [0, 2, 5], fov: 50 }}
-            >
-              <ambientLight intensity={2} color={"#ffffff"} />
-              <directionalLight
-                position={[5, 5, 5]}
-                intensity={5}
-                color={"#a020f0"}
-                castShadow
-              />
+<Canvas className="md:translate-x-40 lg:translate-x-40 -translate-y-40"
+  dpr={[1, 1.5]} // lower resolution on mobile
+  performance={{ min: 0.5 }} // auto reduce frame rate
+  camera={{ position: [0, 2, 5], fov: 50 }}
+>
+  <ambientLight intensity={1.2} />
+  <directionalLight
+    position={[5, 5, 5]}
+    intensity={2} // reduce from 5
+  />
+  <Suspense fallback={null}>
+    <InitModel />
+  </Suspense>
+</Canvas>
 
-              <directionalLight
-                position={[-5, 2, -5]}
-                intensity={2}
-                color={"#ffffff"}
-              />
-
-              <Suspense fallback={null}>
-                <InitModel />
-              </Suspense>
-
-            </Canvas>
           </div>
           <h1
             ref={headRef}
@@ -180,6 +172,7 @@ function LandingPage() {
               loop
               muted
               playsInline
+              preload="auto"
             />
           </div>
           <span className="mt-2 translate-x-2 opacity-50 w-2/3 justify-end text-xs text-gray-600 font-extralight font-sans">

@@ -14,7 +14,7 @@ const logos = [
 
 export default function TrustedBy() {
   return (
-    <div className=" py-6 mt-10 mb-10">
+    <div className="py-6 mt-10 mb-10">
       <h2 className="text-white text-center text-xl font-semibold mb-4">
         Loved by
       </h2>
@@ -24,13 +24,12 @@ export default function TrustedBy() {
         slidesPerView={5}
         spaceBetween={40}
         loop={true}
-        speed={8000}
+        speed={5000} // control overall smoothness (higher = slower scroll)
         autoplay={{
           delay: 0,
           disableOnInteraction: false,
         }}
-        freeMode={true}
-        freeModeMomentum={false}
+        allowTouchMove={false} // disables manual swipe (optional, avoids stutter on mobile)
         className="flex items-center mt-10"
       >
         {logos.map((logo, index) => (
