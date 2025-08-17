@@ -1,8 +1,5 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap';
-import logo from '../assets/logo.png';
 import '../App.css' 
-import btnVideo from '../assets/btn-rev.mp4';
+import btnVideo from '../assets/btn-rev.webm';
 import { useNavigate } from 'react-router-dom';
 
 function AnimButton({redirectTo}) {

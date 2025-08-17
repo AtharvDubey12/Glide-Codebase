@@ -17,7 +17,6 @@ export default function TrustedBy() {
       </h2>
 
       <div className="relative flex overflow-hidden w-full">
-        {/* Track 1 */}
         <div className="flex animate-marquee whitespace-nowrap">
           {logos.map((logo, i) => (
             <div
@@ -29,7 +28,6 @@ export default function TrustedBy() {
           ))}
         </div>
 
-        {/* Track 2 (follows the first seamlessly) */}
         <div className="flex animate-marquee2 whitespace-nowrap absolute top-0">
           {logos.map((logo, i) => (
             <div

@@ -10,10 +10,8 @@ import share_img from "../assets/share.png";
 import safe_img from "../assets/safe.png";
 import gem_img from "../assets/gem.png";
 import pr_img from "../assets/priv.png";
-import texture from "../assets/texture.jpg"
 gsap.registerPlugin(ScrollTrigger);
-import cover from "../assets/cover.mp4";
-import btnVideo from "../assets/btn-rev.mp4";
+import cover from "../assets/cover.webm";
 import LandingCard from "./LandingCard";
 import TrustedBy from "./TrustedBy";
 import Reviews from "./Reviews";
@@ -124,14 +122,14 @@ function LandingPage() {
         <div className="relative w-full lg:w-3/5 h-[100vh]">
           <div className="overflow-hidden opacity-100 w-full h-full absolute">
 <Canvas className="md:translate-x-40 lg:translate-x-40 -translate-y-40"
-  dpr={[1, 1.5]} // lower resolution on mobile
-  performance={{ min: 0.5 }} // auto reduce frame rate
+  dpr={[1, 1.5]}
+  performance={{ min: 0.5 }}
   camera={{ position: [0, 2, 5], fov: 50 }}
 >
   <ambientLight intensity={1.2} />
   <directionalLight
     position={[5, 5, 5]}
-    intensity={5} // reduce from 5
+    intensity={5}
   />
   <Suspense fallback={null}>
     <InitModel />
