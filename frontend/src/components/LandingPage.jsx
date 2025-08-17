@@ -131,7 +131,7 @@ function LandingPage() {
   <ambientLight intensity={1.2} />
   <directionalLight
     position={[5, 5, 5]}
-    intensity={2} // reduce from 5
+    intensity={5} // reduce from 5
   />
   <Suspense fallback={null}>
     <InitModel />
