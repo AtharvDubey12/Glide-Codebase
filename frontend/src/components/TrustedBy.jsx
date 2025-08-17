@@ -12,26 +12,17 @@ const logos = [
 export default function TrustedBy() {
   return (
     <div className="py-6 mt-10 mb-10 overflow-hidden">
-      <h2 className="text-white text-center text-xl font-semibold mb-4">
+      <h2 className="text-white text-center text-xl font-semibold mb-6">
         Loved by
       </h2>
 
+      {/* Outer container */}
       <div className="relative flex overflow-hidden w-full">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {logos.map((logo, i) => (
+        {/* Track container (duplicated for seamless loop) */}
+        <div className="flex animate-marquee will-change-transform">
+          {[...logos, ...logos].map((logo, i) => (
             <div
-              key={`track1-${i}`}
-              className="flex items-center justify-center min-w-[150px] mx-8"
-            >
-              <img src={logo} alt="" className="h-12 object-contain" />
-            </div>
-          ))}
-        </div>
-
-        <div className="flex animate-marquee2 whitespace-nowrap absolute top-0">
-          {logos.map((logo, i) => (
-            <div
-              key={`track2-${i}`}
+              key={i}
               className="flex items-center justify-center min-w-[150px] mx-8"
             >
               <img src={logo} alt="" className="h-12 object-contain" />
@@ -40,23 +31,14 @@ export default function TrustedBy() {
         </div>
       </div>
 
+      {/* Custom animation */}
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0%); }
-          100% { transform: translateX(-100%); }
+          100% { transform: translateX(-50%); }
         }
-
-        @keyframes marquee2 {
-          0% { transform: translateX(100%); }
-          100% { transform: translateX(0%); }
-        }
-
         .animate-marquee {
           animation: marquee 20s linear infinite;
-        }
-
-        .animate-marquee2 {
-          animation: marquee2 20s linear infinite;
         }
       `}</style>
     </div>
