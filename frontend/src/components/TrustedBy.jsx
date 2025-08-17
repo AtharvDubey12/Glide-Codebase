@@ -1,7 +1,4 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
 
 const logos = [
   "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
@@ -14,41 +11,54 @@ const logos = [
 
 export default function TrustedBy() {
   return (
-    <div className="py-6 mt-10 mb-10">
+    <div className="py-6 mt-10 mb-10 overflow-hidden">
       <h2 className="text-white text-center text-xl font-semibold mb-4">
         Loved by
       </h2>
 
-      <Swiper
-        modules={[Autoplay]}
-        slidesPerView={5}
-        spaceBetween={40}
-        loop={true}
-        speed={5000} // control overall smoothness (higher = slower scroll)
-        autoplay={{
-          delay: 0,
-          disableOnInteraction: false,
-        }}
-        allowTouchMove={false} // disables manual swipe (optional, avoids stutter on mobile)
-        className="flex items-center mt-10"
-      >
-        {logos.map((logo, index) => (
-          <SwiperSlide
-            key={index}
-            className="flex items-center justify-center"
-          >
-            <img
-              src={logo}
-              alt={`Logo ${index}`}
-              className="h-12 object-contain"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="relative flex overflow-hidden w-full">
+        {/* Track 1 */}
+        <div className="flex animate-marquee whitespace-nowrap">
+          {logos.map((logo, i) => (
+            <div
+              key={`track1-${i}`}
+              className="flex items-center justify-center min-w-[150px] mx-8"
+            >
+              <img src={logo} alt="" className="h-12 object-contain" />
+            </div>
+          ))}
+        </div>
+
+        {/* Track 2 (follows the first seamlessly) */}
+        <div className="flex animate-marquee2 whitespace-nowrap absolute top-0">
+          {logos.map((logo, i) => (
+            <div
+              key={`track2-${i}`}
+              className="flex items-center justify-center min-w-[150px] mx-8"
+            >
+              <img src={logo} alt="" className="h-12 object-contain" />
+            </div>
+          ))}
+        </div>
+      </div>
 
       <style>{`
-        .swiper-wrapper {
-          transition-timing-function: linear !important;
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-100%); }
+        }
+
+        @keyframes marquee2 {
+          0% { transform: translateX(100%); }
+          100% { transform: translateX(0%); }
+        }
+
+        .animate-marquee {
+          animation: marquee 20s linear infinite;
+        }
+
+        .animate-marquee2 {
+          animation: marquee2 20s linear infinite;
         }
       `}</style>
     </div>
