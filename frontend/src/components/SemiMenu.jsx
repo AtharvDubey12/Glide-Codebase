@@ -16,7 +16,7 @@ function SemiMenu({ action, flag, forceRefresh }) {
   const downloadFromSharedURL = (url, filename) => {
     const directUrl = url
       .replace("www.dropbox.com", "dl.dropboxusercontent.com")
-      .replace("?dl=0", "?dl=1");
+      .replace("&dl=0", "&dl=1");
 
     const a = document.createElement("a");
     a.href = directUrl;

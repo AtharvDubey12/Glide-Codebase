@@ -49,6 +49,24 @@ function DownloadPage() {
   a.remove();
 };
 
+const downloadFromBackend = async (id, filename) => {
+  try {
+    const res = await fetch(`${API_URL}/api/download/${id}`);
+    if (!res.ok) throw new Error('Download failed');
+
+    const blob = await res.blob();
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename || "download";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  } catch (err) {
+    alert(err.message);
+  }
+};
+
+
   return (
     <div className="flex justify-center items-center mt-[60px] h-[calc(100vh-60px)] text-white w-full">
       { (inv === false) ? 
@@ -74,13 +92,15 @@ function DownloadPage() {
         <div className="px-5 w-full flex flex-col text-center font-extralight mb-3"><span>File Type</span>  <span className="font-inter text-sm text-gray-400 pl-2">{file?.type || "processing"}</span></div>
         <div className="px-5 w-full flex flex-col text-center font-extralight">Available  <span className="font-inter text-sm text-gray-400 pl-2">{(file?.isPublic)? "Yes" : "No"}</span></div>
     </div>
-        <button onClick={()=>{
-          downloadFromSharedURL(file.url, file.name);
-        }} className={` absolute bottom-5 md:bottom-8 lg:bottom-14 w-[150px] p-4 rounded-xl border-2 ${(file?.isPublic) ? "border-green-600 bg-green-100" : "border-red-500 bg-red-200"}  bg-opacity-5`} disabled={!(file?.isPublic)}>
-          {
-            (file?.isPublic) ? "Download Now" : "Unavailable"
-          }
-          </button>
+        <button
+  onClick={() => downloadFromBackend(file._id, file.name)}
+  className={`absolute bottom-5 md:bottom-8 lg:bottom-14 w-[150px] p-4 rounded-xl border-2 ${
+    file?.isPublic ? "border-green-600 bg-green-100" : "border-red-500 bg-red-200"
+  } bg-opacity-5`}
+  disabled={!file?.isPublic}
+>
+  {file?.isPublic ? "Download Now" : "Unavailable"}
+</button>
       </div> : <div className="w-full h-full justify-center items-center flex flex-col">
        <p className='text-violet-700 mb-5 text-4xl font-extrabold'>OOPS :(</p>
         <p className='text-violet-950 text-2xl font-bold mb-1'>Error Code : 404</p>
