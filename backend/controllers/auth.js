@@ -29,8 +29,9 @@ export const signup = async (req,res) => {
         }, process.env.JWT, {expiresIn: "7d"});
         res.cookie('token', token, {
             httpOnly: true,
-            sameSite: 'strict',
-            maxAge: 7 * 24 * 60 * 60 * 1000
+            sameSite: 'none',
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+            secure: true
     });
         res.status(201).json({
             message: "Signup Successful",
@@ -63,7 +64,7 @@ export const login = async (req, res) => {
     res.cookie('token', token, {
       httpOnly: true,
       sameSite: 'none',
-      secure: false,
+      secure: true,
     });
 
     res.status(200).json({
