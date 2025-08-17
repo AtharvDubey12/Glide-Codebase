@@ -27,7 +27,7 @@ function UrlCopy({ file, setCopy }) {
           <input
             className="cursor-text p-2 text-xs text-gray-300 w-[80%] rounded-md h-8 bg-slate-800 border-2 border-gray-400 overflow-x-auto overflow-y-hidden"
             disabled
-            value={`http://localhost:5173/download/${file._id}`}
+            value={`${API_URL}/download/${file._id}`}
             type="text"
           />{" "}
           <div onClick={()=>handleCopy()} className="ml-3 text-xs bg-violet-950 text-gray-300 bg-opacity-80 p-1 py-2 rounded-lg text-center">
