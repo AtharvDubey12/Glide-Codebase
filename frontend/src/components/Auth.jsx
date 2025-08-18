@@ -78,10 +78,10 @@ function Auth() {
           Authenticate with Google or Facebook
         </p>
         <div className="w-full p-5 flex flex-col items-center">
-          <div className="cursor-pointer w-[90%] h-10 rounded-md mb-3 border-[1px] border-white flex justify-center items-center text-sm hover:border-violet-600 transition-colors duration-200">
+          <div className="cursor-not-allowed w-[90%] h-10 rounded-md mb-3 border-[1px] border-white flex justify-center items-center text-sm hover:border-violet-600 transition-colors duration-200">
             <img src={google} className="invert w-[25px] mr-5" /> Google
           </div>
-          <div className="cursor-pointer w-[90%] h-10 rounded-md border-[1px] border-white flex justify-center items-center text-sm  hover:border-violet-600 transition-colors duration-200 mb-5">
+          <div className="cursor-not-allowed w-[90%] h-10 rounded-md border-[1px] border-white flex justify-center items-center text-sm  hover:border-violet-600 transition-colors duration-200 mb-5">
             <img src={facebook} className="w-[25px] invert mr-3" /> Facebook
           </div>
         </div>
