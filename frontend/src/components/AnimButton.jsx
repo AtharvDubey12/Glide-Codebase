@@ -14,7 +14,7 @@ function AnimButton({redirectTo}) {
             muted
             playsInline
         />
-        <div className='relative button w-full h-full bg-gradient-to-r from-[rgba(26,0,51,0.55)] via-[rgba(45,0,107,0.82)] to-[rgba(59,0,128,1)] flex items-center justify-center rounded-2xl text-white font-inter text-sm transition-all duration-500 cursor-pointer overflow-hidden z-[1] hover:text-violet-200'>Get Started For Free</div>
+        <div onClick={()=> navigate("/authentication")} className='relative button w-full h-full bg-gradient-to-r from-[rgba(26,0,51,0.55)] via-[rgba(45,0,107,0.82)] to-[rgba(59,0,128,1)] flex items-center justify-center rounded-2xl text-white font-inter text-sm transition-all duration-500 cursor-pointer overflow-hidden z-[1] hover:text-violet-200'>Get Started For Free</div>
     </div>
   )
 }
