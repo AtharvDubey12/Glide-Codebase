@@ -16,22 +16,19 @@ export default function TrustedBy() {
         Loved by
       </h2>
 
-      {/* Outer container */}
       <div className="relative flex overflow-hidden w-full">
-        {/* Track container (duplicated for seamless loop) */}
         <div className="flex animate-marquee will-change-transform">
           {[...logos, ...logos].map((logo, i) => (
             <div
               key={i}
               className="flex items-center justify-center min-w-[150px] mx-8"
             >
-              <img src={logo} alt="" className="h-12 object-contain" />
+              <img src={logo} alt="" className={`h-12 object-contain ${logo === "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" ? "invert" : ""}`} />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Custom animation */}
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0%); }

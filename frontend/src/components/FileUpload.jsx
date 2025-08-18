@@ -38,64 +38,6 @@ export default function FileUpload() {
     handleFiles(e.target.files);
   };
 
-// const uploadToCloudinary = async () => {
-//   if (files.length === 0) return;
-//   setIsUploading(true);
-
-//   for (let i = 0; i < files.length; i++) {
-//     setCurrentUpload(files[i].name);
-//     await new Promise((resolve, reject) => {
-//       const formData = new FormData();
-//       formData.append("file", files[i]);
-//       formData.append("upload_preset", "gdrive_unsigned");
-
-//       const xhr = new XMLHttpRequest();
-//       xhr.open("POST", "https://api.cloudinary.com/v1_1/dtb2mgwcd/upload");
-
-//       xhr.upload.addEventListener("progress", (e) => {
-//         if (e.lengthComputable) {
-//           const percent = Math.round((e.loaded * 100) / e.total);
-//           setUploadProgress(percent);
-//         }
-//       });
-
-//       xhr.onload = async () => {
-//         if (xhr.status === 200) {
-//           const res = JSON.parse(xhr.responseText);
-//           console.log("File Uploaded: ", res.secure_url);
-
-//           try {
-// await axios.post("API_URL/api/save-file", {
-//   fileUrl: res.secure_url,
-//   name: files[i].name,
-//   size: files[i].size,
-//   type: files[i].type,
-//           }, {withCredentials: true});
-//             console.log("File saved to backend successfully");
-//             resolve();
-//           } catch (err) {
-//             console.error("Error saving file to backend:", err);
-//             reject(err);
-//           }
-//         } else {
-//           console.log("Upload failed: ", xhr.responseText);
-//           reject(new Error("Cloudinary upload failed"));
-//         }
-//       };
-
-//       xhr.onerror = () => {
-//         console.error("Error uploading to Cloudinary");
-//         reject(new Error("Cloudinary upload error"));
-//       };
-
-//       xhr.send(formData);
-//     });
-//   }
-//   setIsUploading(false);
-//   setFiles([]);
-//   setUploadProgress(0);
-//   setCurrentUpload('');
-// };
 
 const uploadToDropbox = async () => {
   if (files.length === 0) return;
@@ -107,13 +49,13 @@ const uploadToDropbox = async () => {
     formData.append("file", files[i]);
     formData.append("isPublic", isPublic);
     try {
-      // Call the backend endpoint that uploads to Dropbox
+  
       const res = await axios.post(
         `${API_URL}/api/save-file`, 
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
-          withCredentials: true, // keep cookies if needed
+          withCredentials: true, 
           onUploadProgress: (progressEvent) => {
             if (progressEvent.lengthComputable) {
               const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
@@ -181,8 +123,8 @@ const uploadToDropbox = async () => {
            
             <button onClick={(e)=>{
               e.preventDefault();
-              uploadToDropbox(); // <-- call B2 upload here
-              // uploadToCloudinary(); // <-- Cloudinary code remains commented
+              uploadToDropbox(); 
+         
             }} className="w-[180px] rounded-md h-10 border-2 mb-4 focus:bg-green-600 transition-colors duration-200">Upload File</button> 
           </> : <></>}
 

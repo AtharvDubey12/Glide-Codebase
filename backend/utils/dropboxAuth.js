@@ -63,18 +63,15 @@ async function refreshAccessToken() {
 }
 
 export async function getToken() {
-  // Try memory first
   if (!memoryToken) {
     memoryToken = await readTknFile();
   }
 
-  // If still null, refresh
   if (!memoryToken) {
     await refreshAccessToken();
-    return memoryToken.token; // immediately return
+    return memoryToken.token; 
   }
 
-  // Check if token is near expiry
   const now = Date.now();
   const tokenLifetime = 14400 * 1000; // 4 hours
   const refreshThreshold = memoryToken.expiry - tokenLifetime * 0.1;
@@ -83,5 +80,5 @@ export async function getToken() {
     await refreshAccessToken();
   }
 
-  return memoryToken.token; // always return current token
+  return memoryToken.token; 
 }

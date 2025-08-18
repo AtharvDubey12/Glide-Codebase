@@ -10,7 +10,7 @@ async function scrollToTarget(division, navi) {
   const target = document.getElementById(division);
   if (target) {
     gsap.to(window, {
-      duration: 0.8, // slightly faster for smoother mobile perf
+      duration: 0.8, 
       scrollTo: { y: target, offsetY: 20, autoKill: true },
       ease: "power1.out",
     });
@@ -29,11 +29,9 @@ function Nav() {
     const items = menuRef.current.children;
     const ico = icoRef.current.children;
 
-    // Pre-apply will-change and initial states
     gsap.set(items, { opacity: 0, y: -12, willChange: "transform, opacity" });
     gsap.set(ico, { opacity: 0, x: -12, willChange: "transform, opacity" });
 
-    // Animate items in
     gsap.to(items, {
       opacity: 1,
       y: 0,
@@ -42,7 +40,7 @@ function Nav() {
       ease: "power1.out",
     });
 
-    // Animate icons in
+
     gsap.to(ico, {
       opacity: 1,
       x: -5,
