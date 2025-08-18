@@ -122,7 +122,7 @@ function LandingPage() {
     <>
       <div className="mt-[60px] flex flex-col lg:flex-row text-white font-inter w-full">
         <div className="relative w-full lg:w-3/5 h-[100vh]">
-          <div className="overflow-hidden opacity-100 w-full h-full absolute z-[18]">
+          <div className="overflow-hidden opacity-100 w-full h-full absolute">
             <Canvas
               className="md:translate-x-40 lg:translate-x-40 -translate-y-40"
               dpr={[1, 1.5]}
