@@ -9,6 +9,7 @@ function DownloadPage() {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [inv, setInv] = useState(false);
+  set [isFetching, setIsFetching] = useState(file?.name ? false : true);
   const { id } = useParams();
   const pop = useRef();
   useEffect(()=>{
@@ -99,7 +100,7 @@ const downloadFromBackend = async (id, filename) => {
   } bg-opacity-5`}
   disabled={!file?.isPublic}
 >
-  {file?.isPublic ? "Download Now" : "Unavailable"}
+  {(isFetching) ? "fetching..." : file?.isPublic ? "Download Now" : "Unavailable"}
 </button>
       </div> : <div className="w-full h-full justify-center items-center flex flex-col">
        <p className='text-violet-700 mb-5 text-4xl font-extrabold'>OOPS :(</p>
