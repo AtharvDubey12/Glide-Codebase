@@ -9,7 +9,7 @@ function DownloadPage() {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [inv, setInv] = useState(false);
-  set [isFetching, setIsFetching] = useState(file?.name ? false : true);
+  const [isFetching, setIsFetching] = useState(file?.name ? false : true);
   const { id } = useParams();
   const pop = useRef();
   useEffect(()=>{
