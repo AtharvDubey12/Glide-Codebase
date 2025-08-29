@@ -100,7 +100,7 @@ const downloadFromBackend = async (id, filename) => {
   } bg-opacity-5`}
   disabled={!file?.isPublic}
 >
-  {(isFetching) ? "fetching..." : file?.isPublic ? "Download Now" : "Unavailable"}
+  {(isFetching && !file) ? "fetching..." : file?.isPublic ? "Download Now" : "Unavailable"}
 </button>
       </div> : <div className="w-full h-full justify-center items-center flex flex-col">
        <p className='text-violet-700 mb-5 text-4xl font-extrabold'>OOPS :(</p>
